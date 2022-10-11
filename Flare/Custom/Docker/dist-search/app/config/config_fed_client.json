@@ -1,0 +1,18 @@
+{
+  "format_version": 2,
+
+  "executors": [
+    {
+      "tasks": ["train_task", "submit_task"],
+      "executor": {
+        "path": "search_exec.LocalSearch"
+      }
+    }
+  ],
+  "task_result_filters": [
+  ],
+  "task_data_filters": [
+  ],
+  "components": [
+  ]
+}

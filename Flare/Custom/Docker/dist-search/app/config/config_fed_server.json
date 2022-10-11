@@ -1,0 +1,43 @@
+{
+    "format_version": 2,
+  
+    "server": {
+      "heart_beat_timeout": 600
+    },
+    "task_data_filters": [],
+    "task_result_filters": [],
+    "components": [
+      {
+        "id": "persistor",
+        "path": "model_persistor.GraphPersistor",
+        "args": {
+        }
+      },
+      {
+        "id": "shareable_generator",
+        "path": "search_shareablegenerator.GraphSearchShareableGenerator",
+        "args": {}
+      },
+      {
+        "id": "aggregator",
+        "path": "search_aggregator.GraphAggregator"
+      }
+    ],
+    "workflows": [
+        {
+          "id": "scatter_and_gather",
+          "name": "ScatterAndGather",
+          "args": {
+              "min_clients" : 2,
+              "num_rounds" : 3,
+              "start_round": 0,
+              "wait_time_after_min_received": 10,
+              "aggregator_id": "aggregator",
+              "persistor_id": "persistor",
+              "shareable_generator_id": "shareable_generator",
+              "train_task_name": "train_task",
+              "train_timeout": 0
+          }
+        }
+    ]
+  }
