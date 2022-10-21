@@ -22,6 +22,6 @@ RUN apt-get update && apt-get install -y \
   tmux \
   && rm -rf /var/lib/apt/lists/*
   
-RUN cd /workspace/Custom-FLARE-Program/Program && make prog && cp prog /workspace/poc/site-1/prog && cp prog /workspace/poc/site-2/prog
+RUN cd /workspace/Custom-FLARE-Program/Program && mkdir -p bin && make prog && cp prog /workspace/poc/site-1/prog && cp prog /workspace/poc/site-2/prog
 RUN cp Custom-FLARE-Program/Graphs/ConvertedGraphs/G0.txt poc/server/Graph.txt && cp Custom-FLARE-Program/Graphs/Partitions/G0.2 poc/server/Partition.txt
 
