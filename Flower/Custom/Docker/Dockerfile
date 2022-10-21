@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y \
   libffi-dev libssl-dev libreadline-dev libbz2-dev liblzma-dev libsqlite3-dev python-tk python3-tk tk-dev \
   && rm -rf /var/lib/apt/lists/*
 
-RUN cd /workspace/Custom-Flower/Program && make prog && cp prog /workspace/Custom-Flower/App/prog
+RUN cd /workspace/Custom-Flower/Program && mkdir -p bin && make prog && cp prog /workspace/Custom-Flower/App/prog
 RUN cp /workspace/Custom-Flower/Graphs/Partitions/G0.2 /workspace/Custom-Flower/App/Partition.txt && cp /workspace/Custom-Flower/Graphs/ConvertedGraphs/G0.txt /workspace/Custom-Flower/App/Graph.txt
 
 RUN curl https://pyenv.run | bash
